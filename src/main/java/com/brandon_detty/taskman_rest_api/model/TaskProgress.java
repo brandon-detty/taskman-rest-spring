@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-public class Task {
+public class TaskProgress {
     @Getter
     @Setter
     @Id
@@ -24,17 +24,12 @@ public class Task {
     @Getter
     @Setter
     @ManyToOne
+    private Task task;
+
+    @Getter
+    @Setter
+    @ManyToOne
     private User user;
-
-    @Getter
-    @Setter
-    @Column(length = 50)
-    private String title;
-
-    @Getter
-    @Setter
-    @Column
-    private String description;
 
     @Getter
     @Setter
@@ -44,15 +39,13 @@ public class Task {
 
     @Getter
     @Setter
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false, length = 19)
-    private Date due;
-
-    @Getter
-    @Setter
     private Integer progressScore;
 
     @Getter
     @Setter
-    private Integer completedScore;
+    private Short type;
+
+    @Getter
+    @Setter
+    private String memo;
 }
